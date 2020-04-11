@@ -24,11 +24,11 @@
 #         return num3
 
 
+ 
+ print(max_number(2, 4 , 4))
 
-# print(max_number(2, 4 , 4))
 
-
-
+                
 
         ### Creating a calculator ###
 
