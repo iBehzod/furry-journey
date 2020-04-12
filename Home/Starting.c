@@ -7,4 +7,5 @@ int main() {
     scanf("%d", &a);
     
     return 0;
+
 }
