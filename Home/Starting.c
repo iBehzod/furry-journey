@@ -6,7 +6,7 @@ int main() {
     printf("Hello world again,meet me again %d", max_max);
     scanf("%d", &a);
     printf("Hello again");
-    printf(" ");
+    printf("' __ '");
     return 0;
 
 }
