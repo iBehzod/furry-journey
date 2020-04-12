@@ -9,7 +9,7 @@ int main() {
 
     printf("Hello again");
     
-    printf("__");
+    printf("...");
 
     
     return 0;
