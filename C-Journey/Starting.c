@@ -3,7 +3,7 @@
 
 int main() {
     int a;
-    printf("Hello world again,meet me again %d", max_max);
+    printf("Hello world again,meet me again %d \n", max_max);
     scanf("%d", &a);
     
 

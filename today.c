@@ -1,5 +1,5 @@
 #include <stdio.h>
-  #include <stdlib.h>
+#include <stdlib.h>
 
   struct cStackNode {
         int data;
@@ -65,10 +65,10 @@
                 printf("Circular Stack is empty\n");
                 return;
         }
-        printf("%-3d", head->data);
+        printf("%-3d 3 ", head->data);
         tmp = tmp->next;
         while (tmp != head) {
-                printf("%-3d", tmp->data);
+                printf("%-3d  ", tmp->data);
                 tmp = tmp->next;
         }
         printf("\n");
