@@ -1,15 +1,23 @@
 #include<stdio.h>
-
-stuct Rectangle {
+#include<stdlib.h>
+struct Rectangle {
 
     int length; 
     int breadth;
-}
+    
+};
 
 int main() {
-    struct Rectangle r = {10,5}
     
-    r.length = 15;
-    r.breadth = 10;
-    printf()
+    struct Rectangle *p; //ointer takes same as it asseted
+    p = (struct Rectangle *)malloc(sizeof(struct Rectangle));
+    p -> length = 10;
+    p -> breadth = 15;
+
+    printf("%d", p ->breadth);
+    printf("%d", p -> length);
+    
+    return 0;
+
+
 }
