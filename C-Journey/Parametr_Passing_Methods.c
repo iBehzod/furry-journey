@@ -60,26 +60,26 @@
 
                     // Strucutre as Parametr
 
-#include<stdio.h>
+// #include<stdio.h>
 
-struct Rectangle {
+// struct Rectangle {
 
-    int length;
-    int breadth;
-};
+//     int length;
+//     int breadth;
+// };
 
-int area(struct Rectangle &r1 )
-{
-    r1.breadth++;
-    return r1.length * r1.breadth;
-}
+// int area(struct Rectangle &r1 )
+// {
+//     r1.breadth++;
+//     return r1.length * r1.breadth;
+// }
 
-int main(int argc, char const *argv[])
-{
+// int main(int argc, char const *argv[])
+// {
     
-    struct Rectangle r = {10, 5};
+//     struct Rectangle r = {10, 5};
 
-    printf("%d", area(r));
+//     printf("%d", area(r));
 
-    return 0;
-}
+//     return 0;
+// }
