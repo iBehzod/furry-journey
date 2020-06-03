@@ -29,7 +29,7 @@ void create(int A[], int n)
 
 void Display(struct Node *p)
 {
-    while (p != NULL)
+    while (p)
     {
         printf("%d ", p->data);
         p = p->next;
@@ -51,7 +51,7 @@ void RecursiveDisplay(struct Node *p)
 
 int Rcount(struct Node *p)
 {
-    while (p!= NULL)
+    while (p)
     {
         return Rcount(p->next) + 1;
     }
@@ -63,7 +63,7 @@ int Rcount(struct Node *p)
 int Sum(struct Node *p)
 {
     int S = 0;
-    while (p != NULL)
+    while (p)
     {
         S = S + p->data;
         p = p->next;
@@ -76,7 +76,7 @@ int MAX(struct Node *p)
 {
     int max = INT32_MIN;
 
-    while (p!=NULL)
+    while (p)
     {
         if (p->data > max)
             max = p->data;
@@ -88,13 +88,19 @@ int MAX(struct Node *p)
 }
 
 
-int Search(struct Node *p, int key)
+struct Node* Search(struct Node *p, int key)
 {
-    while (p != NULL)
+    struct Node *q;
+    while (p)
     {
         if (key == p->data)
+        {
+            q->next = p->next;
+            p->next = first;
+            first = p;
             return p;
-
+        }
+        q = p;
         p = p->next;
     }
     return NULL;
@@ -102,23 +108,108 @@ int Search(struct Node *p, int key)
     
 }
 
+
+void Insert(struct Node *p, int index, int val)
+{
+    struct Node *t;
+    t = (struct Node*)malloc(sizeof(struct Node));
+    t->data = val;
+    int i;
+    if(index < 0 || index > Rcount(p)) 
+        return;
+    
+    if (index == 0)
+    {
+        t->next = first;
+        first = t;
+	}
+    
+    else 
+    {
+        for(i = 0; i < index-1; i++)
+            p = p->next;
+    }
+    t->next = p->next;
+    p->next = t;
+    
+
+
+}
+
+void SortedInsert(struct Node *p, int x)
+{
+    struct Node *t, *q = NULL;
+    t  = (struct Node*)malloc(sizeof(struct Node));
+    t->data = x;
+    t->next = NULL;
+
+    if(first == NULL)
+        first = t;
+    else
+    {
+         while (p!=NULL && p->data < x)
+         {
+             q =p;
+             p= p->next;
+         }
+         if (p == first)
+         {
+             t ->next = first;
+             first = t;
+         }
+         else
+         {
+             t->next = q->next;
+             q->next = t;
+         }
+         
+         
+    }
+    
+}
+
+
+
+
 int main()
 {
     //int  A;
     int b;
   //  printf("Give me any number: \n");
   
-    Search(first, 23);
+    struct Node *temp;
 
-    int A[] = {5, 10, 2, 23, 13};
-    create(A, 5);
-//    Display(first);
-    RecursiveDisplay(first);
-    printf("\nLenght of list %d \n", Rcount(first));
-    // printf("sdasdasd");
+//    int A[] = {5, 15, 20, 25, 30};
+//      create(A, 5);
+
+    
+    
+//    RecursiveDisplay(first);
+    
+//    printf("\nLenght of list %d \n", Rcount(first));
+    
     printf("Max is %d ",MAX(first));
-    printf("Sum of all nodes is equal to %d \n\n", Sum(first));
-    return 0;
+    
+    printf("\nSum of all nodes is equal to %d \n\n", Sum(first));
+    
+	temp = Search(first,13);
+	temp = Search(first,2);
+	if (temp)
+        printf("Key is found %d\n", temp->data);
+    else
+    {
+        printf("key is not found\n");
+    }
+    
+    
+//      Insert(first, 0, 11);
+    
+    SortedInsert(first, 13);
+
+	Display(first);
+    printf("\n\n");
+	
+    // return 0;
 }
 
 
