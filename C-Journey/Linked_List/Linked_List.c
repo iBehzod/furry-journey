@@ -168,6 +168,39 @@ void SortedInsert(struct Node *p, int x)
     
 }
 
+int  Delete (struct Node *p, int index)
+{
+    struct Node *q = 0;
+    int x = -1;
+    int i;
+
+    if (index < 1 || index < Rcount(p))
+        return x;
+    if (index == 1)
+    {
+        x = first->data;
+        q = first;
+        first = first->next;
+        free(q);
+        return x;
+    }   
+    else
+    {
+        p = first;
+        q = NULL;
+        for (i = 0; i < index-1;i++)
+        {
+            q = p;
+            p = p->next;
+        }
+        q->next = p->next;
+        x = first->data;
+        free(p);
+
+        return x;
+    }
+    
+}
 
 
 
@@ -192,19 +225,27 @@ int main()
     
     printf("\nSum of all nodes is equal to %d \n\n", Sum(first));
     
-	temp = Search(first,13);
-	temp = Search(first,2);
+
+    
+//    Insert(first, 0, 11);
+    
+    SortedInsert(first, 23);
+    SortedInsert(first, 2);
+    SortedInsert(first, 13);
+
+    temp = Search(first,13);
+//	temp = Search(first,2);
+
+
 	if (temp)
         printf("Key is found %d\n", temp->data);
     else
     {
         printf("key is not found\n");
     }
-    
-    
-//      Insert(first, 0, 11);
-    
-    SortedInsert(first, 13);
+
+    Delete(first, 3);
+
 
 	Display(first);
     printf("\n\n");
