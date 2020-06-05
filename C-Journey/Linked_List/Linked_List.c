@@ -403,7 +403,7 @@ int main()
 //	Display(third);
 //    printf("\n\n");
 
-    printf("\n%d\n " , isLoop(first));
+    printf("\n%dasdasd\n " , isLoop(first));
 
 
     return 0;
