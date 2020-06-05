@@ -5,7 +5,7 @@ struct Node
 {
     int data;
     struct Node *next;
-}*first = NULL;
+}*first = NULL, *second=NULL, *third=NULL;
 
 void create(int A[], int n)
 {
@@ -25,7 +25,57 @@ void create(int A[], int n)
         last = t;
         
     }   
+
 }
+
+void create2(int B[], int n)
+{
+    int i;
+    struct Node *t, *last;
+    second = (struct Node *)malloc(sizeof(struct Node));
+    second->data = B[0];
+    second->next = NULL;
+    last = second;
+
+    for(i=1; i<n; i++)
+    {
+        t =(struct Node *)malloc(sizeof(struct Node));
+        t->data=B[i];
+        t->next= 0;
+        last->next = t;
+        last = t;
+        
+    }   
+
+}
+
+//
+//void create3(int A[], int n)
+//{
+//    int i;
+//    struct Node *t, *last;
+//    third = (struct Node *)malloc(sizeof(struct Node));
+//    third->data = A[0];
+//    third->next = NULL;
+//    last = third;
+//
+//    for(i=1; i<n; i++)
+//    {
+//        t =(struct Node *)malloc(sizeof(struct Node));
+//        t->data=A[i];
+//        t->next= 0;
+//        last->next = t;
+//        last = t;
+//        
+//    }   
+//
+//}
+
+
+
+
+
+
 
 void Display(struct Node *p)
 {
@@ -201,7 +251,89 @@ int  Delete (struct Node *p, int index)
     }
     
 }
+ 
+void ReverseViaPointer(struct Node *p)
+{
+    struct Node *q=NULL, *r=NULL;
+    while (p!=NULL)
+    {
+        r = q;
+        q = p;
+        p = p->next;
+        q->next = r;
+    }
+    first =q;
+    
+}
 
+
+
+void Concat(struct  Node *p, struct Node *q)
+{
+	third = p;
+	
+	while(p->next)
+		p = p->next;
+	p->next = q;
+}
+
+void Merge(struct Node *p, struct Node *q)
+{
+	struct Node *last;
+	
+	if(p->data < q->data)
+	{
+		third = last = p;
+		p= p->next;
+		third->next = NULL;
+	}
+	else
+	{
+		third = last = q;
+		q= q->next;
+		third->next = NULL;
+	}
+	while (p!=NULL && q!=NULL)
+	{
+		if (p->data < q->data)
+		{
+			last->next = p;
+			last= p;
+			p=p->next;
+			last->next = NULL;
+		}
+		else
+		{
+			last->next = q;
+			last = q;
+			q = q->next;
+			last->next = NULL;
+		}
+	}
+	
+	if(p)last->next = p;
+	if(q)last->next =q;
+}
+
+
+int isLoop(struct Node *p)
+{
+    struct Node *q, *m;
+    q = m = p;
+
+    do
+    {
+        q = q->next;
+        m = m->next;
+        m = m? m->next:m;
+    } while (q && m && q!=m);
+    if(p==q)
+        return 1;
+    else
+    	return 0;
+    
+
+}
 
 
 int main()
@@ -212,8 +344,10 @@ int main()
   
     struct Node *temp;
 
-//    int A[] = {5, 15, 20, 25, 30};
-//      create(A, 5);
+    int A[] = {5, 15, 20, 25, 30};
+    int B[] = {110, 117, 130 , 128};
+    create(A, 5);
+    create2(B, 4);
 
     
     
@@ -229,14 +363,15 @@ int main()
     
 //    Insert(first, 0, 11);
     
-    SortedInsert(first, 23);
-    SortedInsert(first, 2);
-    SortedInsert(first, 13);
-
-    temp = Search(first,13);
-//	temp = Search(first,2);
-
-
+//  SortedInsert(first, 5);
+//  SortedInsert(first, 10);
+//  SortedInsert(first, 15);
+//	SortedInsert(first, 20);
+//	SortedInsert(first, 25);
+//	SortedInsert(first, 30);
+//	
+    temp = Search(first, 88);
+    
 	if (temp)
         printf("Key is found %d\n", temp->data);
     else
@@ -244,13 +379,34 @@ int main()
         printf("key is not found\n");
     }
 
-    Delete(first, 3);
+
+//    Delete(first, 3);
 
 
-	Display(first);
-    printf("\n\n");
+//    ReverseViaPointer(first);
+//	printf("\nFirst\n\n");
+//	Display(first);
+//    printf("\n\n");
+//    
+//    printf("Second\n\n");
+//	Display(second);
+//    printf("\n\n");
+//
+//        
+//	Merge(first, second);
 	
-    // return 0;
+	//Concat(first, second);	
+
+		
+		
+//	printf("Third\n\n");
+//	Display(third);
+//    printf("\n\n");
+
+    printf("\n%d\n " , isLoop(first));
+
+
+    return 0;
 
 
 }
