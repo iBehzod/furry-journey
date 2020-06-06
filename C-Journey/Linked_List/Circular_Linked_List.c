@@ -89,28 +89,88 @@ void Insert(struct Node *p, int index, int x)
 }
 
 
-void DeleteC(struct Node *p, int pos)
+//int Delete(struct Node *p, int index)
+//{
+//    struct Node *q;
+//    int i, x; // x for storing the data and i for getting for the index via "for" loop;
+//    
+//    if( index < 0 || index > Length(Head))
+//        return -1;
+//    if(index == 1)
+//    {
+//        while (p->next != Head)p=p->next;
+//        x = Head->data;
+//        if(Head == p)
+//        {
+//            free(Head);
+//            Head = NULL;
+//        }
+//        else
+//        {
+//            p->next = Head->next;
+//            free(p);
+//            Head=p->next;   
+//        }
+//    }
+//    else
+//    {
+//        for(i=0; i<index-2;i++) 
+//            p=p->next;
+//        q = p->next;
+//        p->next = q->next;
+//        x = q->data;
+//        free(q);
+//    }
+//    return x;
+//    
+//}       
+
+int Delete(struct Node *p,int index)
 {
-    int i, x;
     struct Node *q;
-    if (pos < 0 || pos >Length(p))
-        return;
-    if(pos == Head)
+    int i,x;
+    
+    if(index <0 || index >Length(Head))
+        return -1;
+    if(index==1)
     {
-        x = Head->data;
-
+        while(p->next!=Head)p=p->next;
+        x=Head->data;
+        if(Head==p)
+        {
+            free(Head);
+            Head=NULL;
+        }
+        else
+        {
+            p->next=Head->next;
+            free(Head);
+            Head=p->next;
+        }
     }
-
-
+    else
+    {
+        for(i=0;i<index-2;i++)
+            p=p->next;
+        q=p->next;
+        p->next=q->next;
+        x=q->data;
+        free(q);
+    }
+    return x;
 }
+
+
 
 int main() 
 {
     int A[5] = {1, 2, 3, 4, 5};
     create(A,5);
 
+    Delete(Head, 1);
+    // Insert(Head, 0, 100);
 
-    Insert(Head, 0, 100);
+    
     Display(Head);
     return 0;
-}
+} 
