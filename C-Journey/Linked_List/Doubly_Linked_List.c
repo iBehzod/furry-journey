@@ -81,6 +81,66 @@ void Insert(struct Node *p, int index, int x)
     
 }
 
+
+int Delete(struct Node *p, int index)
+{
+   struct Node *q;
+   int x=-1,i;
+   if (index < 1 || index > Length(first))
+       return -1;
+   if (index == 1)
+   {
+       first = first->next;
+       if(first)first->prev = NULL;
+       x = p->data;
+       free(p);
+   }
+   else
+   {
+       for(i=0; i<index-1;i++)
+           p = p->next;
+        p->prev->next =p->next;
+        if(p->next)p->next->prev = p->prev;
+        x = p->data;
+       x = p->data;
+       free(p); 
+   }
+   return x;
+   
+}
+
+// int Delete(struct Node *p,int index)
+// {
+//     //struct Node *q;
+//     int x=-1,i;
+    
+//     if(index < 1 || index > Length(p))
+//         return -1;
+    
+//     if(index==1)
+//     {
+//         first=first->next;
+//         if(first)first->prev=NULL;
+        
+//         x=p->data;
+//         free(p);
+//     }
+//     else
+//     {
+//         for(i=0;i<index-1;i++)
+//             p=p->next;
+//         p->prev->next=p->next;
+//         if(p->next)
+//             p->next->prev=p->prev;
+//         x=p->data;
+//         free(p);
+//     }
+//     return x;
+    
+// }
+
+
+
 int main()
 {
     int A[] = {5, 10, 20, 30 , 40};
@@ -89,8 +149,10 @@ int main()
     printf("\nLength is: %d \n",  Length(first));
     
     
-    Insert(first, 0, 99);
+   // Insert(first, 0, 99);
     
+    Delete(first, 1);
+
     Display(first);
 
 

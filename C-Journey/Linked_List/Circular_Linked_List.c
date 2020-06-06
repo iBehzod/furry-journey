@@ -129,7 +129,7 @@ int Delete(struct Node *p,int index)
 {
     struct Node *q;
     int i,x;
-    
+      
     if(index <0 || index >Length(Head))
         return -1;
     if(index==1)
