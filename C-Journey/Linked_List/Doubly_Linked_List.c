@@ -37,6 +37,8 @@ void Display(struct Node *p)
     }
     printf("\n");
 }
+
+
 int Length(struct Node *p)
 {
     int len =0;
@@ -47,13 +49,29 @@ int Length(struct Node *p)
     }
     return len;
 }  
-//int argc, char const *argv[] 
+
+void Insert(struct Node *p, int index, int x)
+{
+    struct Node *t;
+    int x, i;
+    if(index < 0 || index < Length(p))  // for checking the given number is valid or not
+        return;
+    if (index  ==0)
+    {
+     t->data = x;
+     t->prev = NULL;
+     t->next = first;
+     first->prev = t;
+     first = t;    
+    }
+}
+
 int main()
 {
     int A[] = {5, 10, 20, 30 , 40};
     create(A, 5);
 
-    printf("\nLength is: %d \n", Length(first));
+    printf("\nLength is: %d \n",  Length(first));
     
     Display(first);
 
