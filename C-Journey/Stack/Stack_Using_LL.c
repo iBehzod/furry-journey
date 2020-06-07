@@ -16,6 +16,7 @@ void push(char x)
     t->data = x;
     t->next = top;
     top =t;
+    
     }
 }   
 
