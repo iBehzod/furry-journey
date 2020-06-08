@@ -2,11 +2,11 @@
 #include<stdlib.h>
 struct Node
 {
-    char data;
+    int data;
     struct Node *next;
 }*top=NULL;
 
-void push(char x)
+void push(int x)
 {
     struct Node *t;
     t = (struct Node *)malloc(sizeof(struct Node));
@@ -16,13 +16,13 @@ void push(char x)
     t->data = x;
     t->next = top;
     top =t;
-    
+
     }
 }   
 
 char pop()
 {
-    char x =-1;
+    int x =-1;
     struct Node *t;
     if (top == NULL)
         printf("Stack is empty\n");
@@ -50,29 +50,10 @@ void Display()
     printf("\n");
 }
 
-int isBalanced(char *exp)
-{
-    int i;
-    for(i=0; exp[i]!='\0'; i++)
-        if(exp[i] == ')') // if double quote its gonna be int : char, brilliant
-            push(exp[i]);
-        else if(exp[i] == '(')
-            if(top==NULL) //for checking whether the stack has the char or not
-                return 0;
-            pop();
-    if (top ==NULL)
-        return 1;
-    else 
-        return 0;
-}
-
-
-
 int main()
 {
 
-    char *exp = "(a+b)*(s*s)(aq)(qa)";
-    printf("%d ", isBalanced(exp));
+//    printf("%d ", isBalanced(exp));
     
     
     push(10);
