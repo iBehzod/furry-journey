@@ -3,11 +3,11 @@
 #include <string.h>
 struct Node
 {
-    char data;
+    int data;
     struct Node *next;
 }*top=NULL;
 
-void push(char x)
+void push(int x)
 {
     struct Node *t;
     t = (struct Node *)malloc(sizeof(struct Node));
@@ -21,9 +21,9 @@ void push(char x)
     }
 }   
 
-char pop()
+int pop()
 {
-    char x =-1;
+    int x =-1;
     struct Node *t;
 
     if (top == NULL)
@@ -115,18 +115,6 @@ char *InToPost(char *infix)
 }
 int main()
 {
-    char *infix = "a+b*c-d/e";
-//    char *exp = "(a+b)*(s*s)(aq)(qa)";
-//    printf("%d ", isBalanced(exp));
-//    char *postfix;
-    
-    push('#'); // pushing for some elemet bcz it will firstly retrun error
-
-    char *postfix = InToPost(infix);
-    printf("%s ", postfix); 
-  
-//    Display();
-
 
     return 0;
 }
