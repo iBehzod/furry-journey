@@ -17,7 +17,7 @@ void create(struct Queue *q,int size)
 
 }
 
-void enqueue(struct Queue *q, int x)
+void enqueue(struct Queue *q, int x[])
 {
     if ((q->rear+1)%q->size == q->front)
         printf("\nQueue is full\n");
@@ -52,23 +52,12 @@ int main()
 {
     struct Queue q;
 
-    create(&q, 5);
-    enqueue(&q, 10);
-    enqueue(&q, 20);
-    enqueue(&q, 30);
-    enqueue(&q, 40);
-
-    printf("%d\n ", dequeue(&q));
-    printf("%d\n ", dequeue(&q));
-    printf("%d\n ", dequeue(&q));
     
-    enqueue(&q, 50);
-    enqueue(&q, 60);
-    enqueue(&q, 70);
+    
 
 
-
-
+    create(&q, 5);
+    
     Display(q);
     return 0;
 }
