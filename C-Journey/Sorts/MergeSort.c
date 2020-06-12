@@ -22,28 +22,24 @@ void Merge(int A[], int l, int mid, int h)
 }
 
 
-void IMergeSort(int A[], int n)
+void MergeSort(int A[], int l, int h)
 {
-    int p, l, h, mid, i;
-    for(p=2; p<=n; p=p*2)
+    int mid;
+
+    if(l<h)
     {
-        for(i=0;i+p-1<=n;i=i+p)
-        {
-            l=i;
-            h=i+p-1;
-            mid =(l+h)/2;
-            Merge(A, l, mid, h);
-        }
+        mid = (l+h)/2;
+        MergeSort(A, l, mid);
+        MergeSort(A, mid+1, h);
+        Merge(A, l, mid, h);
     }
-    if(p/2 <n) // if the numbers are odd, in the last dab it will merge together;
-        Merge(A,0, p/2-1, n-1); //p/2-1 bcs the numbers of elements, 
 }
 
 int main()
 {
-   int A[]={11,13,7,12,16,9,24,5,10,3},n=10,i;
+   int A[]={1,2,3,4,5,6,7,8,9,10},n=30,i;
     
-    IMergeSort(A,n);
+    MergeSort(A,0,n-1);
     
     for(i=0;i<10;i++)
         printf("%d ",A[i]);
