@@ -3,30 +3,27 @@
 
 int main()
 {
-    int m,n,search;
-    int A[100];
+    int i,j,search, A[50];
+    printf("Enter how many its going to be: \n");
+    scanf("%d", &i);
 
-    printf("Enter the amount of elements: ");
-    scanf("%d", &m);
+    printf("Enter %d integer(s): \n", i);
+    for(j=0;j<i;j++)
+        scanf("%d", &A[j]);
 
-    printf("Enter %d integers: \n", m);
-
-    for(n=0;n<m;n++)
-        scanf("%d", &A[n]);
-
-    printf("Enter the integer to search: ");
+    printf("Enter the element to search: \n");
     scanf("%d", &search);
 
-    for(n=0;n<m;n++)
-    {   
-        if( A[n] == search)
+    for(j=0;j<i;j++)
+    {
+        if(A[j]==search)
             break;
-    }
-    if(n<m)
-        printf("#Elementfound at index %d", n+1);
-    else   
-        printf("Sorry, Try again");
-    
+}
+    if(j<i)
+        printf("Element is found at index %d and your number is  %d", j+1, search);
+    else    
+        printf("Element is not found, please try again");
 
     return 0;
+
 }
