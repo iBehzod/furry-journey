@@ -26,7 +26,6 @@ int partition(int A[],int l,int h)
 void QuickSort(int A[],int l,int h)
 {
     int j;
-    
     if(l<h)
     {
         j=partition(A,l,h);
