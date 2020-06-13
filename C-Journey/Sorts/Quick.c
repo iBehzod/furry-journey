@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include<stdlib.h>
-#include<stdint.h>
+
+                                          
 void swap(int *x,int *y)
 {
     int temp=*x;
