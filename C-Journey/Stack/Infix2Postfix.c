@@ -115,7 +115,7 @@ char *InToPost(char *infix)
 }
 int main()
 {
-    char *infix = "a+b*c-d/e";
+    char *infix = "a+b*c–d/e*h";
 //    char *exp = "(a+b)*(s*s)(aq)(qa)";
 //    printf("%d ", isBalanced(exp));
 //    char *postfix;
