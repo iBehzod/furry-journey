@@ -18,7 +18,7 @@ int partition(int A[],int l,int h)
         do{j--;}while(A[j]>pivot);
         
         if(i<j)swap(&A[i],&A[j]);
-    }while(i<j);
+    }while(i>j);
     
     swap(&A[l],&A[j]);
     return j;
