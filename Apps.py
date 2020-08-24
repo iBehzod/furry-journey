@@ -29,7 +29,7 @@
 ###
 ####
 
-                
+
 
         ### Creating a calculator ###
 
@@ -67,7 +67,7 @@
 #                     'Oct' : 'October',
 #                     'Nov' : 'November',
 #                     'Dec' : 'December',
-                    
+
 
 # }
 
@@ -84,7 +84,7 @@
 #     print(n)
 #     n += 1
 
- 
+
 
         ### Basic guessing game ####
 
@@ -106,14 +106,14 @@
 # else:
 #     print("You win!")
                             ### to be continued
-    
+
 
         ### For Loop ###
 
 
-friends = ['Mirkom', 'Aziz', 'Shahzod']
+friends = ['Mirkom', 'Aziz', 'Shakhzod']
 
-for index in range(5): 
+for index in range(5):
     if index == 0:
         print("First iteration")
     else:
